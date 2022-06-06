@@ -1,0 +1,129 @@
+{
+    "img_cnt": 1,
+    "img_folder": ["assets", "imgs"],
+    "sound_folder": ["assets", "sounds"],
+    "output_path": ["outputs"],
+    "sound_config": {
+        "Bass": {
+            "id": 1,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Beat": {
+            "id": 2,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Bridge": {
+            "id": 3,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Pad": {
+            "id": 4,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Fx": {
+            "id": 5,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Lead": {
+            "id": 6,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Strings": {
+            "id": 7,
+            "presence_probability": 1,
+            "weights": [1]
+        }
+    },
+    "img_config": {
+        "Background": {
+            "id": 1,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Neck": {
+            "id": 2,
+            "presence_probability": 1,
+            "weights": [1] },
+        "Items": {
+            "id": 3,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Wings": {
+            "id": 4,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Body": {
+            "id": 5,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "BodySolid": {
+            "id": 6,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "BB": {
+            "id": 7,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "LED": {
+            "id": 8,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Frame": {
+            "id": 9,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "UB": {
+            "id": 10,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Bridge": {
+            "id": 11,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Andy": {
+            "id": 12,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Strings": {
+            "id": 13,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Box": {
+            "id": 14,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Eyes": {
+            "id": 15,
+            "presence_probability": 0.5,
+            "weights": [1]
+        },
+        "Augments":  {
+            "id": 16,
+            "presence_probability": 0.5,
+            "weights": [1]
+        },
+        "Hat": {
+            "id": 17,
+            "presence_probability": 0.5,
+            "weights": [1]
+        }
+    }
+}
