@@ -34,7 +34,6 @@ class AppDelegator:
                 basis=self._max_imgs,
                 file_type=self._img_type
             ).generate().output()] = len(self.imgs)
-        
         print('going for sound')
         self.sounds = {}
         while(len(self.sounds) < self._img_cnt):
@@ -50,11 +49,15 @@ class AppDelegator:
         print('In generate_pictures')
         for img_code, index in self.imgs.items():
             print(f'image #{index} = {img_code}')
-            ImageGenerator() \
+            ImageGenerator(
+                config=self._img_config,
+                folder=self._img_folder,
+                basis=self._max_imgs,
+                file_type=self._img_type
+            ) \
                 .decode(img_code) \
                 .generate() \
-                .show() \
-                .save(path=self._output_path)
+                .save(path=self._output_path['imgs'])
             print(f'done for image #{index}')
         return self
 

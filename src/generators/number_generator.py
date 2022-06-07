@@ -16,20 +16,26 @@ class NumberGenerator(Generator):
     ) -> None:
         self.config = config
         self.folder = folder
-        self.generated_number = 0
         self.basis = basis
         self.file_type = file_type
 
     def generate(self) -> NumberGenerator:
+        self.generated_number = 0
+        temp = []
         for key, value in self.config.items():
             obj = DataTransferObject.from_dict(value)
-            self.generated_number += (self.basis ** obj.id) * Helper(*self.folder, key) \
+            index = Helper(*self.folder, key) \
                 .get_list(file_type=self.file_type) \
                 .extend_probabilities(weights=obj.weights) \
                 .check_presence(probability=obj.presence_probability) \
                 .find_index() \
                 .output()
-            
+            temp.append((obj.id, index))
+            self.generated_number += (self.basis ** (obj.id - 1)) * index
+        # print(f'list before sort: {temp}')
+        temp.sort()
+        temp = list(map(lambda x: x[1], temp))
+        print(f'created list: {temp}')
         return self
     
     def output(self) -> int:
