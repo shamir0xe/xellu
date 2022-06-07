@@ -1,7 +1,8 @@
 from __future__ import annotations
+from src.generators.generator import Generator
 
 
-class ImageGenerator:
+class ImageGenerator(Generator):
     def __init__(self) -> None:
         pass
 
