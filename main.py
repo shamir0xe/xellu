@@ -8,7 +8,7 @@ def main():
         .generate_pairs() \
         .generate_pictures() \
         .generate_sounds() \
-        .mix_gifs()
+        .mix()
 
 if __name__ == '__main__':
     main()

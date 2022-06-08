@@ -32,7 +32,7 @@ class ImageGenerator(Generator):
                 # it's not selected
                 continue
             obj = DictSelector.get_by_id(self.config, id=i + 1)
-            image_list = FileFinder.all_files_recursive(*self.folder, obj[0], file_type='.png')
+            image_list = FileFinder.all_files_recursive(*self.folder, obj[0], file_type=self.file_type)
             current_image = ImageHelper.open(image_list[index - 1][1])
             if self.image is None:
                 self.image = current_image
@@ -45,5 +45,5 @@ class ImageGenerator(Generator):
         return self
 
     def save(self, path: list) -> ImageGenerator:
-        ImageHelper.save(self.image, *path, str(self.code) + '.png')
+        ImageHelper.save(self.image, *path, str(self.code) + '.' + self.file_type)
         return self

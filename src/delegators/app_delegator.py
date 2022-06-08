@@ -20,7 +20,7 @@ class AppDelegator:
     
     def apply_arguments(self) -> AppDelegator:
         for key, value in ArgumentParser.get_pairs(remove_prefix=True).items():
-            setattr(self, f'_{key}', value)
+            setattr(self, f'_{key}', int(value))
             print('[%s]: %s' % (key, value))
         return self
 
@@ -65,12 +65,17 @@ class AppDelegator:
         print('In generate_sounds')
         for sound_code, index in self.sounds.items():
             print(f'sound #{index} = {sound_code}')
-            SoundGenerator() \
+            SoundGenerator(
+                config=self._sound_config,
+                folder=self._sound_folder,
+                basis=self._max_imgs,
+                file_type=self._sound_type
+            ) \
                 .decode(sound_code) \
                 .generate() \
-                .save(path=self._output_path)
+                .save(path=self._output_path['sounds'])
             print(f'done music for #{index}')
         return self
     
-    def mix_gifs(self) -> AppDelegator:
+    def mix(self) -> AppDelegator:
         return self
