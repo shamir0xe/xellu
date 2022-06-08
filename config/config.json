@@ -4,7 +4,8 @@
     "sound_folder": ["assets", "sounds"],
     "output_path": {
         "imgs": ["outputs", "imgs"],
-        "sounds": ["outputs", "sounds"]
+        "sounds": ["outputs", "sounds"],
+        "mp4s": ["outputs", "mp4s"]
     },
     "img_config_path": ["config", "img.json"],
     "sound_config_path": ["config", "sound.json"],

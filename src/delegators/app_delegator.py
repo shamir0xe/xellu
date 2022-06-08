@@ -1,8 +1,10 @@
 from __future__ import annotations
+from src.helpers.selectors.dict_selector import DictSelector
 from src.facades.config.config_reader import ConfigReader
 from src.generators.image_generator import ImageGenerator
 from src.generators.sound_generator import SoundGenerator
 from src.generators.number_generator import NumberGenerator
+from src.generators.mp4_generator import Mp4Generator
 from libs.python_library.argument_parser import ArgumentParser
 
 
@@ -78,4 +80,13 @@ class AppDelegator:
         return self
     
     def mix(self) -> AppDelegator:
+        for i in range(self._img_cnt):
+            Mp4Generator(
+                sound_id=DictSelector.get_by_value(self.sounds, i)[0],
+                img_id=DictSelector.get_by_value(self.imgs, i)[0]
+            ) \
+                .load_img(path=self._output_path['imgs'], file_type=self._img_type) \
+                .load_sound(path=self._output_path['sounds'], file_type=self._sound_type) \
+                .generate() \
+                .save(path=self._output_path['mp4s'])
         return self
