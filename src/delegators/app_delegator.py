@@ -35,7 +35,7 @@ class AppDelegator:
                 folder=self._img_folder,
                 basis=self._max_imgs,
                 file_type=self._img_type
-            ).generate().output()] = len(self.imgs)
+            ).generate().condition_correcting().output()] = len(self.imgs)
         print('going for sound')
         self.sounds = {}
         while(len(self.sounds) < self._img_cnt):
@@ -44,7 +44,7 @@ class AppDelegator:
                 folder=self._sound_folder,
                 basis=self._max_imgs,
                 file_type=self._sound_type
-            ).generate().output()] = len(self.sounds)
+            ).generate().condition_correcting().output()] = len(self.sounds)
         return self
 
     def generate_pictures(self) -> AppDelegator:
@@ -75,6 +75,7 @@ class AppDelegator:
             ) \
                 .decode(sound_code) \
                 .generate() \
+                .mastering() \
                 .save(path=self._output_path['sounds'])
             print(f'done music for #{index}')
         return self

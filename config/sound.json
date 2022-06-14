@@ -1,37 +1,45 @@
 {
-    "Bass": {
-        "id": 1,
-        "presence_probability": 1,
-        "weights": [1]
+    "traits": {
+        "Bass": {
+            "id": 1,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Beat": {
+            "id": 2,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Bridge": {
+            "id": 3,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Pad": {
+            "id": 4,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Fx": {
+            "id": 5,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Lead": {
+            "id": 6,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Strings": {
+            "id": 7,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Melody": {
+            "id": 8,
+            "presence_probability": 1,
+            "weights": [1]
+        }
     },
-    "Beat": {
-        "id": 2,
-        "presence_probability": 1,
-        "weights": [1]
-    },
-    "Bridge": {
-        "id": 3,
-        "presence_probability": 1,
-        "weights": [1]
-    },
-    "Pad": {
-        "id": 4,
-        "presence_probability": 1,
-        "weights": [1]
-    },
-    "Fx": {
-        "id": 5,
-        "presence_probability": 1,
-        "weights": [1]
-    },
-    "Lead": {
-        "id": 6,
-        "presence_probability": 1,
-        "weights": [1]
-    },
-    "Strings": {
-        "id": 7,
-        "presence_probability": 1,
-        "weights": [1]
-    }
+    "conditions": {}
 }

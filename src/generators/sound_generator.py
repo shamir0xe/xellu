@@ -14,7 +14,7 @@ class SoundGenerator(Generator):
         basis: int,
         file_type: str
     ) -> None:
-        self.config = config
+        self.config = config["traits"]
         self.folder = folder
         self.basis = basis
         self.file_type = file_type
@@ -37,6 +37,10 @@ class SoundGenerator(Generator):
                 self.sound = current_sound
             else:
                 self.sound = SoundHelper.mix(self.sound, current_sound)
+        return self
+    
+    def mastering(self) -> SoundGenerator:
+        self.sound = SoundHelper.mastering_procedure(self.sound)
         return self
     
     def play(self) -> SoundGenerator:

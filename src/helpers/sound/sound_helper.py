@@ -20,3 +20,11 @@ class SoundHelper:
     def save(sound: AudioSegment, file_type: str, path: list) -> None:
         print(f'saving audio to {path}')
         sound.export(PathHelper.from_root(*path), format=file_type)
+    
+    @staticmethod
+    def mastering_procedure(sound: AudioSegment) -> AudioSegment:
+        # mastering
+        # print(sound[:10])
+        # print('hoho')
+        return sound
+

@@ -15,7 +15,7 @@ class ImageGenerator(Generator):
         basis: int,
         file_type: str
     ) -> None:
-        self.config = config
+        self.config = config["traits"]
         self.folder = folder
         self.basis = basis
         self.file_type = file_type

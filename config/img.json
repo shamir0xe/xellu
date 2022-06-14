@@ -1,87 +1,83 @@
 {
-    "Background": {
-        "id": 1,
-        "presence_probability": 1,
-        "weights": [1]
+    "traits": {
+        "Background": {
+            "id": 1,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "BackBody": {
+            "id": 2,
+            "presence_probability": 1,
+            "weights": [1] 
+        },
+        "Neck": {
+            "id": 3,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "UpperBody": {
+            "id": 4,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "SideBody": {
+            "id": 5,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Body": {
+            "id": 6,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "LED": {
+            "id": 7,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "BottomBody": {
+            "id": 8,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Bridge": {
+            "id": 9,
+            "presence_probability": 0.5,
+            "weights": [1]
+        },
+        "Fingertail": {
+            "id": 10,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "TechBox": {
+            "id": 11,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Head": {
+            "id": 12,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Hologram": {
+            "id": 13,
+            "presence_probability": 1,
+            "weights": [1]
+        },
+        "Augment": {
+            "id": 14,
+            "presence_probability": 1,
+            "weights": [1]
+        }
     },
-    "Neck": {
-        "id": 2,
-        "presence_probability": 1,
-        "weights": [1] 
-    },
-    "Items": {
-        "id": 3,
-        "presence_probability": 1,
-        "weights": [1]
-    },
-    "Wings": {
-        "id": 4,
-        "presence_probability": 1,
-        "weights": [1]
-    },
-    "Body": {
-        "id": 5,
-        "presence_probability": 1,
-        "weights": [1]
-    },
-    "BodySolid": {
-        "id": 6,
-        "presence_probability": 1,
-        "weights": [1]
-    },
-    "BB": {
-        "id": 7,
-        "presence_probability": 1,
-        "weights": [1]
-    },
-    "LED": {
-        "id": 8,
-        "presence_probability": 1,
-        "weights": [1]
-    },
-    "Frame": {
-        "id": 9,
-        "presence_probability": 1,
-        "weights": [1]
-    },
-    "UB": {
-        "id": 10,
-        "presence_probability": 1,
-        "weights": [1]
-    },
-    "Bridge": {
-        "id": 11,
-        "presence_probability": 1,
-        "weights": [1]
-    },
-    "Andy": {
-        "id": 12,
-        "presence_probability": 1,
-        "weights": [1]
-    },
-    "Strings": {
-        "id": 13,
-        "presence_probability": 1,
-        "weights": [1]
-    },
-    "Box": {
-        "id": 14,
-        "presence_probability": 1,
-        "weights": [1]
-    },
-    "Eyes": {
-        "id": 15,
-        "presence_probability": 0.5,
-        "weights": [1]
-    },
-    "Augments":  {
-        "id": 16,
-        "presence_probability": 0.5,
-        "weights": [1]
-    },
-    "Hat": {
-        "id": 17,
-        "presence_probability": 0.5,
-        "weights": [1]
+    "conditions": {
+        "must": {
+            "1": [13, 14],
+            "3": [4, 5, 6]
+        },
+        "must-not": {
+            "10": [12]
+        }
     }
 }
