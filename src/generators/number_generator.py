@@ -68,7 +68,8 @@ class NumberGenerator(Generator):
                                         .output()
                                 )
             if "must-not" in self.config["conditions"]:
-                for key, value in self.config["conditions"]["must-not"].items():
+                mustnot_list = list(self.config["conditions"]["must-not"].items())
+                for key, value in random.sample(mustnot_list, len(mustnot_list)):
                     key = int(key)
                     if self.exists_trait(key):
                         for idx in value:
