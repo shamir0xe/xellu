@@ -13,4 +13,4 @@ class FileFinder:
                 files = [*files, *FileFinder.all_files_recursive(*[*paths, obj.name], file_type=file_type)]
         files.sort()
         return files
-    
+

@@ -1,5 +1,5 @@
 {
-    "img_cnt": 3,
+    "img_cnt": 1,
     "img_folder": ["assets", "imgs"],
     "sound_folder": ["assets", "sounds"],
     "output_path": {
@@ -11,5 +11,5 @@
     "sound_config_path": ["config", "sound.json"],
     "max_imgs": 111,
     "sound_type": "mp3",
-    "img_type": "png"
+    "img_type": "avif"
 }

@@ -1,5 +1,5 @@
 from __future__ import annotations
-from PIL import Image
+import pillow_avif
 from src.helpers.file.file_finder import FileFinder
 from src.generators.generator import Generator
 from src.helpers.data.decoder import Decoder

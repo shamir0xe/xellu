@@ -1,4 +1,3 @@
-from multiprocessing.dummy import Array
 import os
 import json
 from typing import Any

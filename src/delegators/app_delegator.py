@@ -4,7 +4,7 @@ from src.facades.config.config_reader import ConfigReader
 from src.generators.image_generator import ImageGenerator
 from src.generators.sound_generator import SoundGenerator
 from src.generators.number_generator import NumberGenerator
-from src.generators.mp4_generator import Mp4Generator
+from src.generators.clip_generator import ClipGenerator
 from libs.python_library.argument_parser import ArgumentParser
 
 
@@ -82,7 +82,7 @@ class AppDelegator:
     
     def mix(self) -> AppDelegator:
         for i in range(self._img_cnt):
-            Mp4Generator(
+            ClipGenerator(
                 sound_id=DictSelector.get_by_value(self.sounds, i)[0],
                 img_id=DictSelector.get_by_value(self.imgs, i)[0]
             ) \

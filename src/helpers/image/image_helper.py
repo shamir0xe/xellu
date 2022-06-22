@@ -1,3 +1,4 @@
+import numpy as np
 from PIL import Image
 from src.helpers.file.path_helper import PathHelper
 
@@ -15,6 +16,10 @@ class ImageHelper:
     @staticmethod
     def open(*paths) -> Image:
         return Image.open(PathHelper.from_root(*paths))
+    
+    @staticmethod
+    def rgb_array(image: Image):
+        return np.array(image)
 
     @staticmethod
     def paste(image: Image, second_image: Image) -> Image:
