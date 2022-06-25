@@ -3,42 +3,74 @@
         "Bass": {
             "id": 1,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "filters": {
+                "high_fq": 15000,
+                "low_fq": 100
+            }
         },
         "Beat": {
             "id": 2,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "filters": {
+                "high_fq": 15000,
+                "low_fq": 100
+            }
         },
         "Bridge": {
             "id": 3,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "filters": {
+                "high_fq": 15000,
+                "low_fq": 100
+            }
         },
         "Pad": {
             "id": 4,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "filters": {
+                "high_fq": 15000,
+                "low_fq": 100
+            }
         },
         "Fx": {
             "id": 5,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "filters": {
+                "high_fq": 15000,
+                "low_fq": 100
+            }
         },
         "Lead": {
             "id": 6,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "filters": {
+                "high_fq": 15000,
+                "low_fq": 100
+            }
         },
         "Strings": {
             "id": 7,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "filters": {
+                "high_fq": 15000,
+                "low_fq": 100
+            }
         },
         "Melody": {
             "id": 8,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "filters": {
+                "high_fq" : 15000,
+                "low_fq" : 100
+            }
         }
     },
     "conditions": {}

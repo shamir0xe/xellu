@@ -5,6 +5,7 @@ from src.generators.generator import Generator
 from src.helpers.data.decoder import Decoder
 from src.helpers.selectors.dict_selector import DictSelector
 from src.helpers.image.image_helper import ImageHelper
+from tqdm import tqdm
 
 
 class ImageGenerator(Generator):
@@ -26,8 +27,9 @@ class ImageGenerator(Generator):
         return self
 
     def generate(self) -> ImageGenerator:
+        print('generating imgae')
         self.image = None
-        for i, index in enumerate(self.indices):
+        for i, index in enumerate(tqdm(self.indices)):
             if index == 0:
                 # it's not selected
                 continue
