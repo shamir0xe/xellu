@@ -1,6 +1,7 @@
 from __future__ import annotations
 from functools import reduce
 import random
+from src.helpers.datastructures.basis_map import BasisMap
 from src.helpers.data.data_transfer_object import DataTransferObject
 from src.generators.generator import Generator
 from src.helpers.file.file_finder import FileFinder
@@ -17,11 +18,11 @@ class NumberGenerator(Generator):
     ) -> None:
         self.config = config
         self.folder = folder
-        self.basis = basis
         self.file_type = file_type
+        self.basis_map = BasisMap(basis=basis)
 
     def generate(self) -> NumberGenerator:
-        self.generated_number = 0
+        self.basis_map.clear()
         temp = []
         for key, value in self.config["traits"].items():
             obj = DataTransferObject.from_dict(value)
@@ -32,18 +33,46 @@ class NumberGenerator(Generator):
                 .find_index() \
                 .output()
             temp.append((obj.id, index))
-            self.add_trait(index=obj.id, value=index)
-            # self.generated_number += (self.basis ** (obj.id - 1)) * index
+            self.add_trait(id=obj.id, value=index)
         # print(f'list before sort: {temp}')
         temp.sort()
         temp = list(map(lambda x: x[1], temp))
         print(f'created list: {temp}')
         return self
     
+    def group_selection(self) -> NumberGenerator:
+        groups = self.get_groups()
+        # print(f'groups: {groups}')
+        if len(groups) <= 1:
+            return self
+        random_group = random.sample(groups, k=1)[0]
+        print(f'selected group: {random_group}')
+        for index, value in iter(self.basis_map):
+            if value > 0:
+                # we have selected this attribute
+                # print(f'({index + 1}, {value})')
+                group = self.get_group(id=index + 1)
+                if group != random_group:
+                    # print(f'removing this trait: {index + 1} ~~ {group} != {random_group}')
+                    self.remove_trait(id=index + 1)
+        return self
+    
+    def get_groups(self) -> list:
+        groups = set()
+        for index, value in iter(self.basis_map):
+            if value > 0:
+                groups.add(self.get_group(id=index + 1))
+        return list(groups)
+
+    def get_group(self, id: int) -> int:
+        obj = DictSelector.get_by_id(obj=self.config["traits"], id=id)[1]
+        return obj["group"] if "group" in obj else 0
+
     def condition_correcting(self) -> NumberGenerator:
         print('in condition correcting')
         correct = False
         while not correct:
+            self.group_selection()
             correct = True
             if "must" in self.config["conditions"]:
                 for key, value in self.config["conditions"]["must"].items():
@@ -54,14 +83,16 @@ class NumberGenerator(Generator):
                             correct &= bl
                             if not bl:
                                 print(f'oops we gonnad add index: {idx}')
-                                weights = DictSelector.get_by_attribute(
-                                    dictionary=self.config["traits"].items(),
+                                obj = DictSelector.get_by_id(
+                                    obj=self.config["traits"],
                                     id=idx
-                                )[1]["weights"]
-                                print('NEW wights to add: ', weights)
+                                )
+                                weights = obj[1]["weights"]
+                                attr_name = obj[0]
+                                # print('NEW wights to add: ', weights)
                                 self.add_trait(
-                                    index=idx, 
-                                    value=Helper(*self.folder, key) \
+                                    id=idx, 
+                                    value=Helper(*self.folder, attr_name) \
                                         .get_list(file_type=self.file_type) \
                                         .extend_probabilities(weights=weights) \
                                         .find_index() \
@@ -77,30 +108,22 @@ class NumberGenerator(Generator):
                             correct &= bl
                             if not bl:
                                 print(f'oops we gonna remove index: {idx}')
-                                self.remove_trait(index=idx)
+                                self.remove_trait(id=idx)
         return self
 
-    def index_value(self, index: int) -> int:
-        number = self.generated_number
-        for _ in range(index - 1):
-            number = number // self.basis
-        return number % self.basis
+    def exists_trait(self, id: int) -> bool:
+        return self.basis_map.get_value(index=id - 1) > 0
 
-    def exists_trait(self, index: int) -> bool:
-        return self.index_value(index=index) > 0
-
-    def remove_trait(self, index: int) -> NumberGenerator:
-        value = self.index_value(index=index)
-        self.generated_number -= self.basis ** (index - 1) * value
+    def remove_trait(self, id: int) -> NumberGenerator:
+        self.basis_map.remove_index(index=id - 1)
         return self
 
-    def add_trait(self, index: int, value: int) -> NumberGenerator:
-        self.remove_trait(index=index)
-        self.generated_number += self.basis ** (index - 1) * value
+    def add_trait(self, id: int, value: int) -> NumberGenerator:
+        self.basis_map.set_value(index=id - 1, value=value)
         return self
     
     def output(self) -> int:
-        return self.generated_number
+        return self.basis_map.associated_number()
 
 class Helper:
     def __init__(self, *args) -> None:
