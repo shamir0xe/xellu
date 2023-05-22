@@ -3,37 +3,44 @@
         "Background": {
             "id": 1,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "names": ["abra", "cadabra", "pango", "carlos"]
         },
         "Landscape": {
             "id": 3,
             "presence_probability": 1,
-            "weights": [1] 
+            "weights": [1],
+            "names": ["3abra", "3cadabra", "3pango", "3carlos", "3julio", "3mashed"]
         },
         "Architecture": {
             "id": 4,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "names": ["abra", "cadabra", "pango", "carlos", "julio", "mashed"]
         },
         "Acc": {
             "id": 5,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "names": ["abra", "cadabra", "pango", "carlos", "julio", "mashed"]
         },
         "BG": {
             "id": 2,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "names": ["abra", "cadabra", "pango", "carlos", "julio", "mashed"]
         },
         "Sword": {
             "id": 7,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "names": ["abra", "cadabra", "pango", "carlos", "julio", "mashed"]
         },
         "Hat": {
             "id": 6,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "names": ["abra", "cadabra", "pango", "carlos", "julio", "mashed"]
         }
 
     },
