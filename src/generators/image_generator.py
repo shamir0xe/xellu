@@ -48,6 +48,7 @@ class ImageGenerator(Generator):
         return self
     
     def add_name(self) -> ImageGenerator:
+        print(f'generated name is {self.name}')
         return self
     
     def add_border(self) -> ImageGenerator:
