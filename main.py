@@ -6,7 +6,7 @@ def main():
         .apply_config() \
         .apply_arguments() \
         .generate_pairs() \
-        # .generate_pictures() \
+        .generate_pictures() \
         # .generate_sounds() \
         # .mix()
 

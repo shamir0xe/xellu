@@ -5,80 +5,44 @@
             "presence_probability": 1,
             "weights": [1]
         },
-        "BackBody": {
-            "id": 2,
+        "Landscape": {
+            "id": 3,
             "presence_probability": 1,
             "weights": [1] 
         },
-        "Neck": {
-            "id": 3,
-            "presence_probability": 1,
-            "weights": [1]
-        },
-        "UpperBody": {
+        "Architecture": {
             "id": 4,
             "presence_probability": 1,
             "weights": [1]
         },
-        "SideBody": {
+        "Acc": {
             "id": 5,
             "presence_probability": 1,
             "weights": [1]
         },
-        "Body": {
-            "id": 6,
+        "BG": {
+            "id": 2,
             "presence_probability": 1,
             "weights": [1]
         },
-        "LED": {
+        "Sword": {
             "id": 7,
             "presence_probability": 1,
             "weights": [1]
         },
-        "BottomBody": {
-            "id": 8,
-            "presence_probability": 1,
-            "weights": [1]
-        },
-        "Bridge": {
-            "id": 9,
-            "presence_probability": 0.5,
-            "weights": [1]
-        },
-        "Fingertail": {
-            "id": 10,
-            "presence_probability": 1,
-            "weights": [1]
-        },
-        "TechBox": {
-            "id": 11,
-            "presence_probability": 1,
-            "weights": [1]
-        },
-        "Head": {
-            "id": 12,
-            "presence_probability": 1,
-            "weights": [1]
-        },
-        "Hologram": {
-            "id": 13,
-            "presence_probability": 1,
-            "weights": [1]
-        },
-        "Augment": {
-            "id": 14,
+        "Hat": {
+            "id": 6,
             "presence_probability": 1,
             "weights": [1]
         }
+
     },
     "conditions": {
         "must": {
-            "13": [14],
-            "3": [4, 5, 6]
         },
         "must-not": {
-            "10": [12],
-            "12": [10]
         }
     }
 }
+
+
