@@ -49,7 +49,10 @@
         },
         "must-not": {
         }
+    },
+    "names": {
+        "font_path": ["assets", "fonts", "MISTRAL.TTF"],
+        "font_size": 40,
+        "position": [555, 222]
     }
 }
-
-
