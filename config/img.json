@@ -3,82 +3,56 @@
         "Background": {
             "id": 1,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "names": ["abra", "cadabra", "pango", "carlos"]
         },
-        "BackBody": {
-            "id": 2,
-            "presence_probability": 1,
-            "weights": [1] 
-        },
-        "Neck": {
+        "Landscape": {
             "id": 3,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "names": ["3abra", "3cadabra", "3pango", "3carlos", "3julio", "3mashed"]
         },
-        "UpperBody": {
+        "Architecture": {
             "id": 4,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "names": ["abra", "cadabra", "pango", "carlos", "julio", "mashed"]
         },
-        "SideBody": {
+        "Acc": {
             "id": 5,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "names": ["abra", "cadabra", "pango", "carlos", "julio", "mashed"]
         },
-        "Body": {
-            "id": 6,
+        "BG": {
+            "id": 2,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "names": ["abra", "cadabra", "pango", "carlos", "julio", "mashed"]
         },
-        "LED": {
+        "Sword": {
             "id": 7,
             "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "names": ["abra", "cadabra", "pango", "carlos", "julio", "mashed"]
         },
-        "BottomBody": {
-            "id": 8,
+        "Hat": {
+            "id": 6,
             "presence_probability": 1,
-            "weights": [1]
-        },
-        "Bridge": {
-            "id": 9,
-            "presence_probability": 0.5,
-            "weights": [1]
-        },
-        "Fingertail": {
-            "id": 10,
-            "presence_probability": 1,
-            "weights": [1]
-        },
-        "TechBox": {
-            "id": 11,
-            "presence_probability": 1,
-            "weights": [1]
-        },
-        "Head": {
-            "id": 12,
-            "presence_probability": 1,
-            "weights": [1]
-        },
-        "Hologram": {
-            "id": 13,
-            "presence_probability": 1,
-            "weights": [1]
-        },
-        "Augment": {
-            "id": 14,
-            "presence_probability": 1,
-            "weights": [1]
+            "weights": [1],
+            "names": ["abra", "cadabra", "pango", "carlos", "julio", "mashed"]
         }
+
     },
     "conditions": {
         "must": {
-            "13": [14],
-            "3": [4, 5, 6]
         },
         "must-not": {
-            "10": [12],
-            "12": [10]
         }
+    },
+    "names": {
+        "font_path": ["assets", "fonts", "MISTRAL.TTF"],
+        "font_size": 40,
+        "position": [555, 222]
     }
 }

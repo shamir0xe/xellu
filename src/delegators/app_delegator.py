@@ -59,6 +59,8 @@ class AppDelegator:
             ) \
                 .decode(img_code) \
                 .generate() \
+                .add_name() \
+                .add_border() \
                 .save(path=self._output_path['imgs'])
             print(f'done for image #{index}')
         return self
