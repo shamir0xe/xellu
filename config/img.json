@@ -38,7 +38,7 @@
         },
         "6Sun-over": {
             "id": 6,
-            "presence_probability": 1,
+            "presence_probability": 0.5,
             "weights": [1],
             "names": ["Dewy", "Ebbing", "Lapping", "Restless", "Swelling", "Minka", "Shoin-zukur", "Tranquil"],
             "is_mask": true
