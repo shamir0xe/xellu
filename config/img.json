@@ -4,67 +4,79 @@
             "id": 1,
             "presence_probability": 1,
             "weights": [1],
-            "names": ["Comrade", "Mibashi", "Nihonto", "Trenchant", "Wakizashi"]
+            "names": ["Comrade", "Mibashi", "Nihonto", "Trenchant", "Wakizashi"],
+            "is_mask": false
         },
         "2Back2": {
             "id": 3,
             "presence_probability": 0.5,
             "weights": [1],
-            "names": ["Mountainlake", "salutMountain", "sereneMountain", "snowyMountain", "spearMountain", "splenderMountain"]
+            "names": ["Mountainlake", "salutMountain", "sereneMountain", "snowyMountain", "spearMountain", "splenderMountain"],
+            "is_mask": false
         },
         "3Back3": {
             "id": 2,
             "presence_probability": 0.5,
             "weights": [1],
-            "names": ["Nihonteien"]
+            "names": ["Nihonteien"],
+            "is_mask": false
         },
         "4Back4": {
             "id": 4,
             "presence_probability": 0.5,
             "weights": [1],
-            "names": ["Fallen", "Stirring"]
+            "names": ["Fallen", "Stirring"],
+            "mask_color": [255, 255, 255, 255],
+            "is_mask": false
         },
         "5Sun": {
             "id": 5,
             "presence_probability": 1,
             "weights": [1],
-            "names": ["Dandelionsun", "Scarletsun", "Sunshine", "Touchablesun"]
+            "names": ["Dandelionsun", "Scarletsun", "Sunshine", "Touchablesun"],
+            "is_mask": false
         },
         "6Sun-over": {
             "id": 6,
-            "presence_probability": 0.5,
+            "presence_probability": 1,
             "weights": [1],
-            "names": ["Dewy", "Ebbing", "Lapping", "Restless", "Swelling", "Minka", "Shoin-zukur", "Tranquil"]
+            "names": ["Dewy", "Ebbing", "Lapping", "Restless", "Swelling", "Minka", "Shoin-zukur", "Tranquil"],
+            "is_mask": true
         },
         "7Typo": {
             "id": 7,
             "presence_probability": 0.5,
             "weights": [1],
-            "names": ["Bangasa"]
+            "names": ["Bangasa"],
+            "is_mask": false
         },
         "8Samurai": {
             "id": 8,
             "presence_probability": 0.8,
             "weights": [1],
-            "names": ["Hachi", "Kabuto", "Mabizashi", "Shikoro"]
+            "names": ["Hachi", "Kabuto", "Mabizashi", "Shikoro"],
+            "is_mask": false
         },
         "9mus": {
             "id": 9,
             "presence_probability": 0.8,
             "weights": [1],
-            "names": ["Provoking", "Silent", "Sublime"]
+            "names": ["Provoking", "Silent", "Sublime"],
+            "is_mask": false
         },
         "10Last": {
             "id": 10,
             "presence_probability": 0.5,
             "weights": [1],
-            "names": ["Provoking", "Silent", "Sublime"]
+            "names": ["Provoking", "Silent", "Sublime"],
+            "is_mask": false
         },
         "11Sign": {
             "id": 11,
             "presence_probability": 1,
             "weights": [1],
-            "names": ["Katana"]
+            "names": ["Katana"],
+            "is_mask": false
         }
     },
     "conditions": {

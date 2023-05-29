@@ -34,20 +34,35 @@ class ImageGenerator(Generator):
     def generate(self) -> ImageGenerator:
         print('generating imgae')
         self.image = None
+        mask_color = None
+        images = []
         for i, index in enumerate(tqdm(self.indices)):
             if index == 0:
                 # it's not selected
                 continue
             category, obj = DictSelector.get_by_id(self.config.traits, id=i + 1)
             obj = DataTransferObject.from_dict(obj)
+            if hasattr(obj, 'mask_color'):
+                mask_color = tuple(obj.mask_color)
             image_list = FileFinder.all_files_recursive(*self.folder, category, file_type=self.file_type)
-            current_image = ImageHelper.open(image_list[index - 1][1])
+            current_image = ImageHelper.copy(ImageHelper.open(image_list[index - 1][1]))
+            images.append(current_image)
             name = obj.names[(index - 1) % len(obj.names)].upper()
             self.name += f' {name}'
             if self.image is None:
-                self.image = current_image
+                self.image = ImageHelper.copy(current_image)
             else:
+                if obj.is_mask:
+                    background_image = images[0]
+                    if mask_color is not None:
+                        background_image = ImageHelper.new(images[0]._size, mask_color)
+                    current_image = ImageHelper.create_mask(
+                        current_image, 
+                        images[-2], # second last image
+                        background_image # background image
+                    )
                 self.image = ImageHelper.paste(self.image, current_image)
+
         return self
     
     def add_name(self) -> ImageGenerator:
