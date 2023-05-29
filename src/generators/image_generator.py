@@ -8,6 +8,7 @@ from src.helpers.selectors.dict_selector import DictSelector
 from src.helpers.image.image_helper import ImageHelper
 from src.helpers.data.data_transfer_object import DataTransferObject
 from src.helpers.file.path_helper import PathHelper
+from src.helpers.text.text_helper import TextHelper
 from tqdm import tqdm
 
 
@@ -41,7 +42,7 @@ class ImageGenerator(Generator):
             obj = DataTransferObject.from_dict(obj)
             image_list = FileFinder.all_files_recursive(*self.folder, category, file_type=self.file_type)
             current_image = ImageHelper.open(image_list[index - 1][1])
-            name = obj.names[(index - 1) % len(obj.names)]
+            name = obj.names[(index - 1) % len(obj.names)].upper()
             self.name += f' {name}'
             if self.image is None:
                 self.image = current_image
@@ -53,16 +54,33 @@ class ImageGenerator(Generator):
         print(f'generated name is: {self.name}')
         # make the name vertical
         self.name = '\n'.join([char for char in self.name])
-        # print the word on a transparent sheet
-        word_image = ImageHelper.text_image(
+        position_x, position_y = tuple(self.config.names['position'])
+        delta_x, delta_y = tuple(self.config.names['delta_position'])
+        split_index = TextHelper.find_split_index(
             self.name, 
-            self.image._size, 
-            tuple(self.config.names['position']),
-            PathHelper.from_root(*self.config.names['font_path']),
-            self.config.names['font_size']
+            self.config.names['split_portion']
         )
-        # paste the created image on the main image
-        self.image = ImageHelper.paste(self.image, word_image)
+        images_properties = [{
+            "name": self.name[:split_index],
+            "x": position_x,
+            "y": position_y
+        }, {
+            "name": self.name[split_index:],
+            "x": position_x + delta_x,
+            "y": position_y + delta_y
+        }]
+        for image_properties in images_properties:
+            properties = DataTransferObject.from_dict(image_properties)
+            # print the word on a transparent sheet
+            word_image = ImageHelper.text_image(
+                properties.name, 
+                self.image._size, 
+                (properties.x, properties.y),
+                PathHelper.from_root(*self.config.names['font_path']),
+                self.config.names['font_size']
+            )
+            # paste the created image on the main image
+            self.image = ImageHelper.paste(self.image, word_image)
         return self
     
     def add_border(self) -> ImageGenerator:

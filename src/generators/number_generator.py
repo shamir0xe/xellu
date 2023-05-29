@@ -109,6 +109,16 @@ class NumberGenerator(Generator):
                             if not bl:
                                 print(f'oops we gonna remove index: {idx}')
                                 self.remove_trait(id=idx)
+            if "must-not-if" in self.config["conditions"]:
+                for key, value in self.config["conditions"]["must-not-if"].items():
+                    key = int(key)
+                    if not self.exists_trait(key):
+                        for idx in value:
+                            bl = not self.exists_trait(idx)
+                            correct &= bl
+                            if not bl:
+                                print(f'oops we gonna remove index: {idx}')
+                                self.remove_trait(id=idx)
         return self
 
     def exists_trait(self, id: int) -> bool:

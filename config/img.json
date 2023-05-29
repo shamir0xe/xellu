@@ -1,58 +1,88 @@
 {
     "traits": {
-        "Background": {
+        "1Back": {
             "id": 1,
             "presence_probability": 1,
             "weights": [1],
-            "names": ["abra", "cadabra", "pango", "carlos"]
+            "names": ["Comrade", "Mibashi", "Nihonto", "Trenchant", "Wakizashi"]
         },
-        "Landscape": {
+        "2Back2": {
             "id": 3,
-            "presence_probability": 1,
+            "presence_probability": 0.5,
             "weights": [1],
-            "names": ["3abra", "3cadabra", "3pango", "3carlos", "3julio", "3mashed"]
+            "names": ["Mountainlake", "salutMountain", "sereneMountain", "snowyMountain", "spearMountain", "splenderMountain"]
         },
-        "Architecture": {
+        "3Back3": {
+            "id": 2,
+            "presence_probability": 0.5,
+            "weights": [1],
+            "names": ["Nihonteien"]
+        },
+        "4Back4": {
             "id": 4,
-            "presence_probability": 1,
+            "presence_probability": 0.5,
             "weights": [1],
-            "names": ["abra", "cadabra", "pango", "carlos", "julio", "mashed"]
+            "names": ["Fallen", "Stirring"]
         },
-        "Acc": {
+        "5Sun": {
             "id": 5,
             "presence_probability": 1,
             "weights": [1],
-            "names": ["abra", "cadabra", "pango", "carlos", "julio", "mashed"]
+            "names": ["Dandelionsun", "Scarletsun", "Sunshine", "Touchablesun"]
         },
-        "BG": {
-            "id": 2,
-            "presence_probability": 1,
-            "weights": [1],
-            "names": ["abra", "cadabra", "pango", "carlos", "julio", "mashed"]
-        },
-        "Sword": {
-            "id": 7,
-            "presence_probability": 1,
-            "weights": [1],
-            "names": ["abra", "cadabra", "pango", "carlos", "julio", "mashed"]
-        },
-        "Hat": {
+        "6Sun-over": {
             "id": 6,
+            "presence_probability": 0.5,
+            "weights": [1],
+            "names": ["Dewy", "Ebbing", "Lapping", "Restless", "Swelling", "Minka", "Shoin-zukur", "Tranquil"]
+        },
+        "7Typo": {
+            "id": 7,
+            "presence_probability": 0.5,
+            "weights": [1],
+            "names": ["Bangasa"]
+        },
+        "8Samurai": {
+            "id": 8,
+            "presence_probability": 0.8,
+            "weights": [1],
+            "names": ["Hachi", "Kabuto", "Mabizashi", "Shikoro"]
+        },
+        "9mus": {
+            "id": 9,
+            "presence_probability": 0.8,
+            "weights": [1],
+            "names": ["Provoking", "Silent", "Sublime"]
+        },
+        "10Last": {
+            "id": 10,
+            "presence_probability": 0.5,
+            "weights": [1],
+            "names": ["Provoking", "Silent", "Sublime"]
+        },
+        "11Sign": {
+            "id": 11,
             "presence_probability": 1,
             "weights": [1],
-            "names": ["abra", "cadabra", "pango", "carlos", "julio", "mashed"]
+            "names": ["Katana"]
         }
-
     },
     "conditions": {
-        "must": {
-        },
+        "must": {},
         "must-not": {
+            "2": [10],
+            "7": [9],
+            "6": [9]
+        },
+        "must-not-if": {
+            "8": [9]
         }
     },
     "names": {
         "font_path": ["assets", "fonts", "MISTRAL.TTF"],
-        "font_size": 40,
-        "position": [555, 222]
+        "font_size": 30,
+        "position": [440, 400],
+        "delta_position": [60, 400],
+        "split_portion": 0.5
     }
 }

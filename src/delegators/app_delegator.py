@@ -36,15 +36,6 @@ class AppDelegator:
                 basis=self._max_imgs,
                 file_type=self._img_type
             ).generate().condition_correcting().output()] = len(self.imgs)
-        print('going for sound')
-        self.sounds = {}
-        while(len(self.sounds) < self._img_cnt):
-            self.sounds[NumberGenerator(
-                config=self._sound_config,
-                folder=self._sound_folder,
-                basis=self._max_imgs,
-                file_type=self._sound_type
-            ).generate().condition_correcting().output()] = len(self.sounds)
         return self
 
     def generate_pictures(self) -> AppDelegator:
@@ -63,33 +54,4 @@ class AppDelegator:
                 .add_border() \
                 .save(path=self._output_path['imgs'])
             print(f'done for image #{index}')
-        return self
-
-    def generate_sounds(self) -> AppDelegator:
-        print('In generate_sounds')
-        for sound_code, index in self.sounds.items():
-            print(f'sound #{index} = {sound_code}')
-            SoundGenerator(
-                config=self._sound_config,
-                folder=self._sound_folder,
-                basis=self._max_imgs,
-                file_type=self._sound_type
-            ) \
-                .decode(sound_code) \
-                .generate() \
-                .mastering() \
-                .save(path=self._output_path['sounds'])
-            print(f'done music for #{index}')
-        return self
-    
-    def mix(self) -> AppDelegator:
-        for i in range(self._img_cnt):
-            ClipGenerator(
-                sound_id=DictSelector.get_by_value(self.sounds, i)[0],
-                img_id=DictSelector.get_by_value(self.imgs, i)[0]
-            ) \
-                .load_img(path=self._output_path['imgs'], file_type=self._img_type) \
-                .load_sound(path=self._output_path['sounds'], file_type=self._sound_type) \
-                .generate() \
-                .save(path=self._output_path['mp4s'])
         return self
